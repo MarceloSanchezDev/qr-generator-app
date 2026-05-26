@@ -1,35 +1,28 @@
-function Navbar() {
+function Footer() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-12">
-        <a href="/" className="flex items-center gap-2 text-xl font-bold text-blue-950">
-          <span className="text-2xl">▣</span>
+    <footer className="mt-auto border-t border-slate-200 bg-slate-50">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 md:flex-row md:px-12">
+        <div className="flex items-center gap-2 font-bold text-blue-950">
+          <span>▣</span>
           QR Precision
-        </a>
+        </div>
 
-        <div className="hidden items-center gap-6 md:flex">
-          <a href="#features" className="text-sm text-slate-600 hover:text-blue-900">
-            Features
+        <div className="flex gap-5 text-sm text-slate-600">
+          <a href="#privacy" className="hover:text-blue-900 hover:underline">
+            Privacy Policy
           </a>
-          <a href="#pricing" className="text-sm text-slate-600 hover:text-blue-900">
-            Pricing
+          <a href="#terms" className="hover:text-blue-900 hover:underline">
+            Terms
           </a>
-          <a href="#help" className="text-sm text-slate-600 hover:text-blue-900">
-            Help
+          <a href="#support" className="hover:text-blue-900 hover:underline">
+            Support
           </a>
         </div>
 
-        <div className="flex items-center gap-3">
-          <button className="hidden text-sm font-medium text-slate-600 hover:text-blue-900 md:block">
-            Log In
-          </button>
-          <button className="rounded-lg bg-blue-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-800 active:scale-95">
-            Get Started
-          </button>
-        </div>
-      </nav>
-    </header>
+        <p className="text-sm text-slate-500">© 2026 QR Precision.</p>
+      </div>
+    </footer>
   );
 }
 
-export default Navbar;
+export default Footer;
