@@ -3,6 +3,7 @@ import UrlForm from "../../components/qr/UrlForm";
 import ColorSelector from "../../components/qr/ColorSelector";
 import QrSettings from "../../components/qr/QrSettings";
 import QrPreview from "../../components/qr/QrPreview";
+import LogoUploader from "../../components/qr/LogoUploader";
 import RecentQrList from "../../components/qr/RecentQrList";
 import { isValidUrl } from "../../helpers/validateUrl";
 
@@ -15,8 +16,11 @@ function Home() {
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
   const [isTransparent, setIsTransparent] = useState(false);
 
-  const [errorCorrection, setErrorCorrection] = useState("M");
+  const [errorCorrection, setErrorCorrection] = useState("H");
   const [size, setSize] = useState(1024);
+
+  const [logoImage, setLogoImage] = useState("");
+  const [logoSize, setLogoSize] = useState(56);
 
   const handleGenerateQrCode = () => {
     const cleanUrl = url.trim();
@@ -52,8 +56,8 @@ function Home() {
 
             <p className="max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
               Creá un código QR personalizado para tu sitio web, menú, evento,
-              campaña o perfil social. Elegí colores, ajustá el tamaño y generá
-              un QR en alta resolución listo para compartir o imprimir.
+              campaña o perfil social. Elegí colores, agregá tu logo y descargá
+              tu QR listo para compartir o imprimir.
             </p>
           </header>
 
@@ -63,11 +67,6 @@ function Home() {
             onUrlChange={setUrl}
             onGenerate={handleGenerateQrCode}
           />
-
-          <p className="text-sm text-slate-500">
-            Ingresá una URL válida que comience con http:// o https://. El
-            código QR se generará después de validar el enlace.
-          </p>
 
           <div
             className="grid grid-cols-1 gap-4 md:grid-cols-2"
@@ -85,10 +84,18 @@ function Home() {
             <QrSettings
               errorCorrection={errorCorrection}
               size={size}
+              logoSize={logoSize}
               onErrorCorrectionChange={setErrorCorrection}
               onSizeChange={setSize}
+              onLogoSizeChange={setLogoSize}
             />
           </div>
+
+          <LogoUploader
+            logoImage={logoImage}
+            onLogoChange={setLogoImage}
+            onLogoRemove={() => setLogoImage("")}
+          />
 
           <section
             className="rounded-2xl bg-white p-6 shadow-sm"
@@ -98,58 +105,14 @@ function Home() {
               id="qr-benefits-title"
               className="mb-3 text-2xl font-bold tracking-tight text-slate-950"
             >
-              Creá códigos QR para negocios, marketing y uso personal
+              Creá códigos QR personalizados para tu marca
             </h2>
 
             <p className="mb-5 text-slate-600">
-              Convertí cualquier URL en un código QR escaneable para folletos,
-              packaging, menús de restaurantes, tarjetas personales, eventos,
-              landing pages y campañas en redes sociales. Personalizá el diseño
-              para que el QR se adapte a tu marca y funcione tanto en piezas
-              impresas como digitales.
+              Podés personalizar colores, fondo, tamaño y agregar un logo en el
+              centro. Para mejores resultados con logo, usá nivel de corrección
+              alto.
             </p>
-
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <article>
-                <h3 className="font-semibold text-slate-950">
-                  Colores personalizados
-                </h3>
-                <p className="text-sm text-slate-600">
-                  Adaptá el código QR a la identidad visual de tu marca o
-                  campaña.
-                </p>
-              </article>
-
-              <article>
-                <h3 className="font-semibold text-slate-950">
-                  Fondo transparente
-                </h3>
-                <p className="text-sm text-slate-600">
-                  Usá tu QR sobre diseños, etiquetas, flyers, packaging o piezas
-                  para redes sociales.
-                </p>
-              </article>
-
-              <article>
-                <h3 className="font-semibold text-slate-950">
-                  Alta resolución
-                </h3>
-                <p className="text-sm text-slate-600">
-                  Generá códigos QR grandes y nítidos, ideales para materiales
-                  impresos y digitales.
-                </p>
-              </article>
-
-              <article>
-                <h3 className="font-semibold text-slate-950">
-                  Corrección de errores
-                </h3>
-                <p className="text-sm text-slate-600">
-                  Elegí el nivel de corrección según el diseño, el tamaño y el
-                  uso final del código QR.
-                </p>
-              </article>
-            </div>
           </section>
 
           <RecentQrList />
@@ -167,11 +130,11 @@ function Home() {
             isTransparent={isTransparent}
             errorCorrection={errorCorrection}
             size={size}
+            logoImage={logoImage}
+            logoSize={logoSize}
           />
         </aside>
       </main>
-
-      
     </div>
   );
 }

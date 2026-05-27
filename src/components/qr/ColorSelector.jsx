@@ -1,46 +1,85 @@
-import SectionCard from "../ui/SectionCard";
+const FOREGROUND_COLORS = ["#0b1c30", "#1d4ed8", "#047857", "#be123c"];
+const BACKGROUND_COLORS = ["#ffffff", "#f8fafc", "#eff6ff", "#ecfdf5"];
 
-function UrlForm({ url, error, onUrlChange, onGenerate }) {
+function ColorButton({ color, isActive, onClick, label }) {
   return (
-    <SectionCard>
-      <label htmlFor="url" className="mb-2 block text-sm font-semibold text-slate-900">
-        Destination URL
-      </label>
-
-      <div className="relative">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-          🔗
-        </span>
-
-        <input
-          id="url"
-          type="url"
-          value={url}
-          onChange={(event) => onUrlChange(event.target.value)}
-          placeholder="https://example.com"
-          className={`w-full rounded-lg border bg-slate-50 py-3 pl-10 pr-4 text-base outline-none transition focus:ring-2 ${
-            error
-              ? "border-red-500 focus:ring-red-200"
-              : "border-slate-200 focus:border-blue-500 focus:ring-blue-100"
-          }`}
-        />
-      </div>
-
-      {error && (
-        <p className="mt-2 text-sm text-red-600">
-          {error}
-        </p>
-      )}
-
-      <button
-        type="button"
-        onClick={onGenerate}
-        className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-blue-950 py-3 font-semibold text-white shadow-sm transition hover:bg-blue-800 active:scale-95"
-      >
-        Generate QR Code
-      </button>
-    </SectionCard>
+    <button
+      type="button"
+      aria-label={label}
+      onClick={onClick}
+      className={`h-9 w-9 rounded-full border-2 transition hover:scale-110 ${
+        isActive ? "border-blue-600 ring-2 ring-blue-100" : "border-slate-200"
+      }`}
+      style={{ backgroundColor: color }}
+    />
   );
 }
 
-export default UrlForm;
+function ColorSelector({
+  foregroundColor,
+  backgroundColor,
+  isTransparent,
+  onForegroundChange,
+  onBackgroundChange,
+  onTransparentChange,
+}) {
+  return (
+    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 className="mb-4 text-xl font-bold text-slate-950">
+        Colores
+      </h2>
+
+      <div className="space-y-5">
+        <div>
+          <p className="mb-2 text-sm font-semibold text-slate-700">
+            Color del QR
+          </p>
+
+          <div className="flex gap-2">
+            {FOREGROUND_COLORS.map((color) => (
+              <ColorButton
+                key={color}
+                color={color}
+                label={`Seleccionar color ${color}`}
+                isActive={foregroundColor === color}
+                onClick={() => onForegroundChange(color)}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <p className="mb-2 text-sm font-semibold text-slate-700">
+            Color de fondo
+          </p>
+
+          <div className="flex flex-wrap items-center gap-2">
+            {BACKGROUND_COLORS.map((color) => (
+              <ColorButton
+                key={color}
+                color={color}
+                label={`Seleccionar fondo ${color}`}
+                isActive={backgroundColor === color && !isTransparent}
+                onClick={() => {
+                  onBackgroundChange(color);
+                  onTransparentChange(false);
+                }}
+              />
+            ))}
+
+            <label className="ml-2 flex cursor-pointer items-center gap-2 text-sm text-slate-600">
+              <input
+                type="checkbox"
+                checked={isTransparent}
+                onChange={(event) => onTransparentChange(event.target.checked)}
+              />
+              Fondo transparente
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default ColorSelector;
