@@ -4,7 +4,7 @@ import ColorSelector from "../../components/qr/ColorSelector";
 import QrSettings from "../../components/qr/QrSettings";
 import QrPreview from "../../components/qr/QrPreview";
 import LogoUploader from "../../components/qr/LogoUploader";
-import RecentQrList from "../../components/qr/RecentQrList";
+//import RecentQrList from "../../components/qr/RecentQrList";
 import { isValidUrl } from "../../helpers/validateUrl";
 
 function Home() {
@@ -115,7 +115,7 @@ function Home() {
             </p>
           </section>
 
-          <RecentQrList />
+          
         </section>
 
         <aside className="lg:col-span-5" aria-labelledby="qr-preview-title">
