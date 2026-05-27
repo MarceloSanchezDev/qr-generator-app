@@ -15,25 +15,9 @@ function Navbar() {
         </a>
 
         <div className="hidden items-center gap-6 md:flex">
-          <a href="#features" className="text-sm text-slate-600 hover:text-blue-900">
-            Features
-          </a>
-          <a href="#pricing" className="text-sm text-slate-600 hover:text-blue-900">
-            Pricing
-          </a>
-          <a href="#help" className="text-sm text-slate-600 hover:text-blue-900">
-            Help
-          </a>
         </div>
 
         <div className="flex items-center gap-3">
-          <button className="hidden text-sm font-medium text-slate-600 hover:text-blue-900 md:block">
-            Log In
-          </button>
-
-          <button className="rounded-lg bg-blue-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-800 active:scale-95">
-            Get Started
-          </button>
         </div>
       </nav>
     </header>

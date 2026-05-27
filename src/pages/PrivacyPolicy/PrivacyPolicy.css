@@ -1,0 +1,376 @@
+.privacy-page {
+  min-height: 100vh;
+  background: #f8f9fa;
+  color: #191c1d;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.privacy-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(248, 249, 250, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid #e9ecef;
+}
+
+.privacy-navbar-container {
+  width: min(100% - 32px, 1280px);
+  height: 64px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.privacy-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #142175;
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.privacy-logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #142175;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.privacy-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.privacy-nav-links a,
+.privacy-login-link {
+  color: #697386;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.privacy-nav-links a:hover,
+.privacy-login-link:hover {
+  color: #142175;
+}
+
+.privacy-nav-links a.active {
+  color: #142175;
+  font-weight: 700;
+  border-bottom: 2px solid #142175;
+  padding-bottom: 4px;
+}
+
+.privacy-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.privacy-cta {
+  background: #142175;
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(20, 33, 117, 0.18);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.privacy-cta:hover {
+  background: #2e3a8c;
+  transform: translateY(-1px);
+}
+
+.privacy-layout {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  display: flex;
+  flex: 1;
+}
+
+.privacy-sidebar {
+  width: 260px;
+  min-height: calc(100vh - 64px);
+  position: sticky;
+  top: 64px;
+
+  padding: 24px 16px;
+  background: #f3f4f5;
+  border-right: 1px solid #e9ecef;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.privacy-sidebar-header {
+  padding: 0 12px;
+}
+
+.privacy-sidebar-header h2 {
+  margin: 0 0 4px;
+  color: #142175;
+  font-size: 1.25rem;
+}
+
+.privacy-sidebar-header p {
+  margin: 0;
+  color: #697386;
+  font-size: 0.9rem;
+}
+
+.privacy-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.privacy-sidebar-nav a,
+.privacy-sidebar-footer a {
+  padding: 12px;
+  border-radius: 10px;
+
+  color: #697386;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.privacy-sidebar-nav a:hover,
+.privacy-sidebar-footer a:hover {
+  background: #e7e8e9;
+  color: #142175;
+}
+
+.privacy-sidebar-nav a.active {
+  background: #2e3a8c;
+  color: #ffffff;
+}
+
+.privacy-sidebar-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid #e1e3e4;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.privacy-sidebar-footer button {
+  width: 100%;
+  padding: 10px 14px;
+
+  border: 1px solid #142175;
+  border-radius: 10px;
+  background: transparent;
+  color: #142175;
+
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.privacy-sidebar-footer button:hover {
+  background: #142175;
+  color: #ffffff;
+}
+
+.privacy-main {
+  flex: 1;
+  max-width: 900px;
+  padding: 48px 32px 64px;
+}
+
+.privacy-header {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.privacy-header h1 {
+  margin: 0 0 12px;
+  color: #142175;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.privacy-header p {
+  margin: 0;
+  color: #697386;
+  font-size: 1.1rem;
+}
+
+.privacy-content {
+  color: #454651;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.privacy-content p {
+  margin: 0 0 18px;
+}
+
+.privacy-content a {
+  color: #142175;
+  font-weight: 700;
+}
+
+.privacy-content h2 {
+  margin: 40px 0 16px;
+  color: #142175;
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+.privacy-content ul {
+  margin: 0 0 24px;
+  padding-left: 24px;
+}
+
+.privacy-content li {
+  margin-bottom: 10px;
+}
+
+.privacy-content strong {
+  color: #1a1f36;
+}
+
+.privacy-callout {
+  margin: 32px 0;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 18px;
+  box-shadow: 0 16px 40px rgba(20, 33, 117, 0.08);
+}
+
+.privacy-callout h3 {
+  margin: 0 0 12px;
+  color: #142175;
+  font-size: 1.25rem;
+}
+
+.privacy-callout p {
+  margin: 0;
+  color: #454651;
+}
+
+.privacy-footer {
+  margin-top: auto;
+  border-top: 1px solid #e9ecef;
+  background: #ffffff;
+}
+
+.privacy-footer-container {
+  width: min(100% - 32px, 1280px);
+  margin: 0 auto;
+  padding: 32px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.privacy-footer h2 {
+  margin: 0;
+  color: #142175;
+  font-size: 1.35rem;
+}
+
+.privacy-footer p {
+  margin: 8px 0 0;
+  color: #697386;
+  font-size: 0.9rem;
+}
+
+.privacy-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.privacy-footer-links a {
+  color: #697386;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.privacy-footer-links a:hover,
+.privacy-footer-links a.active {
+  color: #142175;
+}
+
+@media (max-width: 1024px) {
+  .privacy-sidebar {
+    display: none;
+  }
+
+  .privacy-main {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .privacy-navbar-container {
+    height: auto;
+    padding: 16px 0;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .privacy-nav-links,
+  .privacy-nav-actions {
+    display: none;
+  }
+
+  .privacy-main {
+    padding: 32px 16px 48px;
+  }
+
+  .privacy-header {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+  }
+
+  .privacy-callout {
+    padding: 20px;
+  }
+
+  .privacy-footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .privacy-footer-links {
+    flex-wrap: wrap;
+  }
+}
